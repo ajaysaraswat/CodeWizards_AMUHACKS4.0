@@ -8,27 +8,37 @@ CodeWizards_AMUHACKS4.0 is a **MERN stack project** designed to facilitate user 
 
 ## Features
 
-### 1. **User Registration & Authentication**
-- Users can register by providing a unique username, email, and password.
-- Secure login and token-based authentication using JSON Web Tokens (JWT).
+### 🔐 1. User Registration & Authentication
+- Register with a **unique username, email, and password**.
+- **JWT-based secure login system** ensures safe authentication.
 
-### 2. **Profile Management**
-- Users complete their profiles by adding hobbies after login.
-- Hobbies are used to calculate similarity percentages for user matchmaking.
+### 👤 2. Profile Management
+- Users complete their profiles by **adding hobbies**.
+- Hobbies can be added:
+  - **Manually**
+  - Using **voice-to-text** from **sound recordings**.
 
-### 3. **Hobby-Based User Matching**
-- Users are sorted based on hobby similarity percentages.
-- Users with similar hobbies appear at the top.
-- Online users are highlighted with a green disk.
+### 🔎 3. Hobby-Based User Matching
+- Users are **sorted based on hobby similarity percentage**.
+- Higher similarity = Higher rank in the match list.
+- **Online users** are indicated with a **green dot** for easy visibility.
 
-### 4. **Zero Similarity Users**
-- Users with no hobby similarity are displayed in a separate section for visibility.
+### 🚫 4. Zero Similarity Users
+- Users with **no hobby similarity** are displayed in a **separate section** to promote diverse interactions.
 
-### 5. **Real-Time Video Calling**
-- Users can send video call requests to online users.
-- A video call interface is displayed upon acceptance, featuring:
-  - Two video streams (caller and receiver).
-  - Buttons to accept or end the call.
+### 🎥 5. Real-Time Video Calling
+- Send **video call requests** to online users.
+- Once accepted, a **video call interface** is launched with:
+  - **Two live video streams** (caller + receiver).
+  - **Accept** and **End Call** buttons.
+
+### 🔄 6. Random User Connection
+- Option to **connect randomly** with any available user, enhancing social discovery.
+
+### 💬 7. Real-Time Messaging
+- Integrated **real-time chat system**:
+  - Instant message delivery.
+  - Live updates and status indicators.
 
 ---
 
@@ -135,18 +145,63 @@ CodeWizards_AMUHACKS4.0/
 
 ## Key Backend Files
 
+## 🧠 Backend Architecture
+
 ### 1. **Database Connection (`config/db.js`)**
-- Handles MongoDB connection using Mongoose.
-- Reads the connection URI from the `.env` file.
+- Manages **MongoDB connection** using **Mongoose**.
+- Fetches the connection URI from the **`.env`** file.
+- Ensures the app exits gracefully if the database fails to connect.
+
+---
 
 ### 2. **User Model (`models/User.js`)**
-- Mongoose schema for `User` includes fields for username, email, password, and creation date.
-- Passwords are hashed before saving using bcrypt.js.
-- Includes a method to validate passwords.
+- Defines a **Mongoose schema** for user data:
+  - `username`, `email`, `password`, `createdAt`, `hobbies`.
+- **Password Security:**
+  - Uses **bcrypt.js** to **hash passwords** before saving.
+  - Includes a method to **validate entered passwords** during login.
+
+---
 
 ### 3. **Authentication Controller (`controllers/authController.js`)**
-- Handles user registration and login.
-- Generates JWT tokens for authentication.
+- Manages:
+  - **User registration**
+  - **User login**
+- On successful login/registration:
+  - Returns a **JWT token** for secure session handling.
+- Integrates a **vector-based hobby matching algorithm** to calculate **similarity percentages** between users.
+
+---
+
+### 4. **Real-Time Communication**
+- Uses **WebSocket (Socket.IO)** for:
+  - **Real-time messaging**
+  - **User status updates (online/offline)**
+  - **Video call signaling**
+- Efficient handling of:
+  - Incoming message delivery
+  - Live typing indicators
+  - Video call request/response
+
+---
+
+### 5. **Real-Time Messaging**
+- Built with **Socket.IO** to enable:
+  - **Instant chat delivery**
+  - Message status updates (delivered/seen)
+  - Real-time conversation threads between users
+
+---
+
+### 6. **Deployment**
+- The backend is **deployed on [Render](https://render.com)** for:
+  - Continuous deployment
+  - Auto-scaling
+  - Easy environment variable setup
+- Frontend and backend are fully integrated for seamless real-time interaction.
+
+---
+
 
 ---
 
@@ -159,32 +214,6 @@ CodeWizards_AMUHACKS4.0/
 
 ---
 
-## Contributing
-
-Contributions are welcome! Follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature-name
-   ```
-3. Make your changes and commit them:
-   ```bash
-   git commit -m "Add feature description"
-   ```
-4. Push to your forked repository:
-   ```bash
-   git push origin feature-name
-   ```
-5. Open a pull request.
-
----
-
-## License
-
-This project is licensed under the **MIT License**.
-
----
 
 ## Contact
 
