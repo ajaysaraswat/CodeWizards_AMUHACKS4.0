@@ -15,7 +15,7 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="text-white font-bold text-xl flex items-center">
           <Link to="/" className="text-white">
-            BrandLogo
+            VideoConnect
           </Link>
         </div>
 

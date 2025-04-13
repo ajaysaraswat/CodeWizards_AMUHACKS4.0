@@ -44,7 +44,7 @@ const HomePage = () => {
             <img
               src={videoCallImage} // Ensure the image path is correct
               alt="Video Call"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full md:w-3/4 lg:w-2/3 h-auto rounded-lg shadow-lg"
             />
           </motion.div>
         </div>
