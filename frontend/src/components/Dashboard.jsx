@@ -16,7 +16,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen mt-11 bg-gradient-to-br from-[#3e1e68] via-[#9b4de0] to-[#f2a65a] p-8 text-white font-sans">
+      <div className="min-h-screen mt-14 bg-gradient-to-br from-[#3e1e68] via-[#9b4de0] to-[#f2a65a] p-8 text-white font-sans">
         <motion.h1
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
