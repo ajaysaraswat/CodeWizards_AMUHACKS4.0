@@ -1,6 +1,7 @@
 #AMUHACKS 4.0 #CSSAMU #AMU
 
-# CodeWizards_AMUHACKS4.0
+# TEAM-CodeWizards_AMUHACKS4.0
+# Hobby-Based Real-Time Connector
 
 ## Project Overview
 
