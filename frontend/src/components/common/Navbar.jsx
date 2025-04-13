@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo Section */}
         <div className="text-white font-bold text-xl flex items-center">
-          <Link to={isLoggedIn ? "/dashboard" : "/"} className="text-white">
+          <Link to={isLoggedIn ? "/" : "/"} className="text-white">
             VideoConnect
           </Link>
         </div>
