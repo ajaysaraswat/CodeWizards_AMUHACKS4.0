@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 px-4">
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -24,14 +24,15 @@ const Login = () => {
         <h2 className="text-3xl font-bold text-white text-center mb-6 drop-shadow">
           Welcome Back
         </h2>
+
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="text-white text-sm font-medium" htmlFor="email">
+            <label htmlFor="email" className="text-white text-sm font-medium">
               Email
             </label>
             <input
-              name="email"
               id="email"
+              name="email"
               type="email"
               placeholder="Enter your email"
               value={formData.email}
@@ -43,14 +44,14 @@ const Login = () => {
 
           <div>
             <label
-              className="text-white text-sm font-medium"
               htmlFor="password"
+              className="text-white text-sm font-medium"
             >
               Password
             </label>
             <input
-              name="password"
               id="password"
+              name="password"
               type="password"
               placeholder="Enter your password"
               value={formData.password}
@@ -63,14 +64,14 @@ const Login = () => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-yellow-400 text-white font-semibold py-2 rounded-lg hover:bg-yellow-500 transition"
+            className="w-full bg-purple-500 text-white font-semibold py-2 rounded-lg hover:bg-purple-600 transition"
           >
             Login
           </motion.button>
         </form>
 
         <p className="text-white mt-4 text-sm text-center">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link
             to="/"
             className="underline text-yellow-100 hover:text-white transition"
