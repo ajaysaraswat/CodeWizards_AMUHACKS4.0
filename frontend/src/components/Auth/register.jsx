@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
 
   const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.username]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,15 +30,18 @@ const Register = () => {
         </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="text-white text-sm font-medium" htmlFor="name">
-              Name
+            <label
+              className="text-white text-sm font-medium"
+              htmlFor="username"
+            >
+              Username
             </label>
             <input
-              name="name"
-              id="name"
+              name="username"
+              id="username"
               type="text"
-              placeholder="Enter your name"
-              value={formData.name}
+              placeholder="Enter your username"
+              value={formData.username}
               onChange={handleChange}
               required
               className="w-full mt-1 px-4 py-2 rounded-lg bg-white/80 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
