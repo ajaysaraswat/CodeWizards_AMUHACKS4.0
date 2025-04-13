@@ -4,7 +4,7 @@ import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // For demo, replace with actual login state
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // For demo, replace with actual login state
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
 
         {/* Hamburger Menu for Mobile */}
-        <div className="md:hidden flex items-center">
+        {/* <div className="md:hidden flex items-center">
           <button onClick={toggleMenu}>
             {menuOpen ? (
               <FaTimes size={30} className="text-white" />
@@ -51,11 +51,11 @@ const Navbar = () => {
               <FaBars size={30} className="text-white" />
             )}
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
+      {/* {menuOpen && (
         <div className="md:hidden bg-white text-black p-4 absolute top-0 left-0 right-0 mt-12">
           <div className="flex flex-col space-y-4">
             {isLoggedIn ? (
@@ -83,7 +83,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

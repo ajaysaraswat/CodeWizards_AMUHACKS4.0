@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-r from-[#6a0dad] to-[#9b4de0] flex items-center justify-center p-6">
+      <div className="min-h-screen mt-14 md:mt-2 bg-gradient-to-r from-[#6a0dad] to-[#9b4de0] flex items-center justify-center p-6">
         {/* Split layout container */}
         <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Side: Text & Welcome */}
