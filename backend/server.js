@@ -69,7 +69,7 @@ const io = new Server(httpServer, {
 // Socket.io
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
-
+  console.log("Connected users:", connectedUsers);
   socket.on("register-user", async (userId) => {
     console.log("Registering user:", userId);
     onlineUsers.set(userId, socket.id);
