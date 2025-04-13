@@ -28,10 +28,34 @@ const userSchema = new mongoose.Schema({
     required: [true, "password is required"],
     minlength: [6, "password must be at least 6 characters long"],
   },
+  hobbies: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
+  interestsVector: {
+    type: [Number],
+    default: [],
+  },
+  isOnline: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
+  hobbyEmbeddings: {
+    type: [Number],
+    default: [],
+  },
+  matches: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {
