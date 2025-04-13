@@ -4,12 +4,14 @@ const cors = require("cors");
 const { createServer } = require("http");
 
 const dotenv = require("dotenv");
+const connectMongoDb = require("./config/db");
 dotenv.config();
 
 dotenv.config({
   path: process.env.NODE_ENV === "production" ? ".env.production" : ".env",
 });
 
+connectMongoDb();
 const app = express();
 const httpServer = createServer(app);
 const PORT = process.env.PORT || 5000;
