@@ -5,5 +5,6 @@ const { getProfile, updateProfile } = require("../controllers/userController");
 
 router.get("/profile", protect, getProfile);
 router.put("/profile", protect, updateProfile);
+router.get("/matches", protect, findMatches);
 
 module.exports = router;
