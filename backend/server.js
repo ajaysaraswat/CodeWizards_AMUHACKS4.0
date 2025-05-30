@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const connectMongoDb = require("./config/db");
+const connectDB = require("./config/db");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const User = require("./models/User");
@@ -12,7 +12,7 @@ dotenv.config({
 });
 
 // Connect to database
-connectMongoDb();
+connectDB();
 
 const app = express();
 const httpServer = createServer(app);
@@ -69,7 +69,7 @@ const io = new Server(httpServer, {
 // Socket.io
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
-  console.log("Connected users:", connectedUsers);
+
   socket.on("register-user", async (userId) => {
     console.log("Registering user:", userId);
     onlineUsers.set(userId, socket.id);
