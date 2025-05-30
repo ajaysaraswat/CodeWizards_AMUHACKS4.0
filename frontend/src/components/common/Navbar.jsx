@@ -1,91 +1,78 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // For demo, replace with actual login state
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
 
-  return (
-    <div className="bg-gradient-to-r from-[#6a0dad] to-[#9b4de0] p-4 shadow-lg fixed top-0 left-0 w-full z-10">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo Section */}
-        <div className="text-white font-bold text-xl flex items-center">
-          <Link to={isLoggedIn ? "/" : "/"} className="text-white">
-            VideoConnect
-          </Link>
-        </div>
-
-        {/* User Icon or Login/Register Buttons */}
-        <div className="flex items-center space-x-4">
-          {isLoggedIn ? (
-            <Link to="/dashboard">
-              <FaUserCircle size={28} className="text-white cursor-pointer" />
-            </Link>
-          ) : (
-            <div className="flex space-x-4">
-              <Link to="/login">
-                <button className="bg-yellow-400 text-black py-2 px-4 rounded-lg shadow-lg hover:bg-yellow-500 transition duration-300">
-                  Login
-                </button>
-              </Link>
-              <Link to="/register">
-                <button className="bg-yellow-400 text-black py-2 px-4 rounded-lg shadow-lg hover:bg-yellow-500 transition duration-300">
-                  Register
-                </button>
-              </Link>
-            </div>
-          )}
-        </div>
-
-        {/* Hamburger Menu for Mobile */}
-        {/* <div className="md:hidden flex items-center">
-          <button onClick={toggleMenu}>
-            {menuOpen ? (
-              <FaTimes size={30} className="text-white" />
-            ) : (
-              <FaBars size={30} className="text-white" />
-            )}
-          </button>
-        </div> */}
-      </div>
-
-      {/* Mobile Menu */}
-      {/* {menuOpen && (
-        <div className="md:hidden bg-white text-black p-4 absolute top-0 left-0 right-0 mt-12">
-          <div className="flex flex-col space-y-4">
-            {isLoggedIn ? (
-              <Link
-                to="/dashboard"
-                className="hover:text-yellow-300 transition duration-300"
-              >
-                Dashboard
-              </Link>
-            ) : (
-              <>
-                <Link
-                  to="/login"
-                  className="hover:text-yellow-300 transition duration-300"
+    return (
+        <AppBar 
+            position="static" 
+            sx={{
+                background: 'linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+            }}
+        >
+            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography 
+                    variant="h6" 
+                    sx={{ 
+                        fontWeight: 'bold',
+                        background: 'linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        textShadow: '2px 2px 4px rgba(0,0,0,0.1)'
+                    }}
                 >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  className="hover:text-yellow-300 transition duration-300"
-                >
-                  Register
-                </Link>
-              </>
-            )}
-          </div>
-        </div>
-      )} */}
-    </div>
-  );
+                    Hobby Matcher
+                </Typography>
+                {user && (
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                        <Button
+                            startIcon={<DashboardIcon />}
+                            onClick={() => navigate('/dashboard')}
+                            sx={{
+                                background: 'rgba(255, 255, 255, 0.2)',
+                                backdropFilter: 'blur(10px)',
+                                color: 'white',
+                                '&:hover': {
+                                    background: 'rgba(255, 255, 255, 0.3)',
+                                    transform: 'scale(1.05)'
+                                },
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
+                            Dashboard
+                        </Button>
+                        <Button
+                            startIcon={<LogoutIcon />}
+                            onClick={handleLogout}
+                            sx={{
+                                background: 'rgba(255, 255, 255, 0.2)',
+                                backdropFilter: 'blur(10px)',
+                                color: 'white',
+                                '&:hover': {
+                                    background: 'rgba(255, 255, 255, 0.3)',
+                                    transform: 'scale(1.05)'
+                                },
+                                transition: 'all 0.3s ease'
+                            }}
+                        >
+                            Logout
+                        </Button>
+                    </Box>
+                )}
+            </Toolbar>
+        </AppBar>
+    );
 };
 
 export default Navbar;
