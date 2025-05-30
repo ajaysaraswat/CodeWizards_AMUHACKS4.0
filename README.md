@@ -1,10 +1,11 @@
 #AMUHACKS 4.0 #CSSAMU #AMU
 
-# CodeWizards_AMUHACKS4.0
+# TEAM-CodeWizards_AMUHACKS4.0
+# Hobby-Based Real-Time Connector
 
 ## Project Overview
 
-CodeWizards_AMUHACKS4.0 is a **MERN stack project** designed to facilitate user interactions based on hobbies. Users can register, complete their profiles by specifying hobbies, and connect with others who share similar interests. The platform offers real-time features like online user indicators and video calling for seamless interaction.
+Hobby-Based Real-Time Connector is a **MERN stack project** designed to facilitate user interactions based on hobbies. Users can register, complete their profiles by specifying hobbies, and connect with others who share similar interests. The platform offers real-time features like online user indicators and video calling for seamless interaction.
 
 ---
 
